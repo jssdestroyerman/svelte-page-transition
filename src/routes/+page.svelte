@@ -1,36 +1,21 @@
 <script lang="ts">
 	import { gsap } from 'gsap';
 
-	function spin(node: any) {
-		gsap.to(node, {
-			rotate: 1080
+	function anim(node: any) {
+		gsap.from(node, {
+			x: -100
 		});
 		return {};
 	}
-	function spinOut(node: any) {
+	function animOut(node: any) {
 		gsap.to(node, {
-			rotate: -1080
+			x: -100
 		});
 		return {};
 	}
 </script>
 
-<div class="centered" in:spin out:spinOut>
-	<span>transitions!</span>
+<div in:anim out:animOut>
+	<h1>main page</h1>
+	<a href="/about">about page</a>
 </div>
-<a href="/about">about page</a>
-
-<style>
-	.centered {
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
-	}
-
-	span {
-		position: absolute;
-		transform: translate(-50%, -50%);
-		font-size: 4em;
-	}
-</style>
